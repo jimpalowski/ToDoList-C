@@ -47,6 +47,7 @@ namespace ToDoList.Tests
         {
             //Arrange
             Item testItem = new Item("Mow the lawn");
+            testItem.SetDate("05/10/18");
 
             //Act
             testItem.Save();
@@ -62,6 +63,7 @@ namespace ToDoList.Tests
         {
           //Arrange
           Item testItem = new Item("Mow the lawn");
+          testItem.SetDate("05/10/18");
 
           //Act
           testItem.Save();
@@ -79,6 +81,7 @@ namespace ToDoList.Tests
         {
             //Arrange
             Item testItem = new Item("Mow the lawn");
+            testItem.SetDate("05/10/18");
             testItem.Save();
 
             //Act

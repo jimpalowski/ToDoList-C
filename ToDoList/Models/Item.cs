@@ -9,6 +9,7 @@ namespace ToDoList.Models
   {
     private string _description;
     private int _id;
+    private string _dueDate;
     private static List<Item> _instances = new List<Item> {};
 
     public Item (string Description)
@@ -37,12 +38,17 @@ namespace ToDoList.Models
         conn.Open();
 
         var cmd = conn.CreateCommand() as MySqlCommand;
-        cmd.CommandText = @"INSERT INTO `items` (`description`) VALUES (@ItemDescription);";
+        cmd.CommandText = @"INSERT INTO `items` (`description`, `due_date`) VALUES (@ItemDescription, @ItemDueDate);";
 
         MySqlParameter description = new MySqlParameter();
         description.ParameterName = "@ItemDescription";
         description.Value = this._description;
         cmd.Parameters.Add(description);
+
+        MySqlParameter due_date = new MySqlParameter();
+        due_date.ParameterName = "@ItemDueDate";
+        due_date.Value = this._dueDate;
+        cmd.Parameters.Add(due_date);
 
         cmd.ExecuteNonQuery();
         _id = (int) cmd.LastInsertedId;
@@ -58,10 +64,17 @@ namespace ToDoList.Models
     {
         return _id;
     }
+
     public string GetDescription()
     {
         return _description;
     }
+
+    public string GetDate()
+    {
+        return _dueDate;
+    }
+
     public void SetDescription(string newDescription)
     {
         _description = newDescription;
@@ -72,20 +85,27 @@ namespace ToDoList.Models
         _id = newId;
     }
 
+    public void SetDate(string newDate)
+    {
+        _dueDate = newDate;
+    }
+
     public static List<Item> GetAll()
     {
         List<Item> allItems = new List<Item> {};
         MySqlConnection conn = DB.Connection();
         conn.Open();
         MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
-        cmd.CommandText = @"SELECT * FROM items;";
+        cmd.CommandText = @"SELECT * FROM items ORDER BY due_date DESC;";
         MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
         while(rdr.Read())
         {
           int itemId = rdr.GetInt32(0);
           string itemDescription = rdr.GetString(1);
+          string itemDueDate = rdr.GetString(2);
           Item newItem = new Item(itemDescription);
           newItem.SetId(itemId);
+          newItem.SetDate(itemDueDate);
           allItems.Add(newItem);
         }
         conn.Close();
