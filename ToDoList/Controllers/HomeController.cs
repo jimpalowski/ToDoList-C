@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
+using MySql.Data.MySqlClient;
 using ToDoList.Models;
 
 namespace ToDoList.Controllers
