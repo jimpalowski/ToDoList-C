@@ -15,6 +15,7 @@ namespace ToDoList.Controllers
           Category category = Category.Find(categoryId);
           return View(category);
        }
+
        [HttpGet("/categories/{categoryId}/items/{itemId}")]
        public ActionResult Details(int categoryId, int itemId)
        {
@@ -25,5 +26,19 @@ namespace ToDoList.Controllers
           model.Add("category", category);
           return View(item);
        }
+
+       [HttpGet("/items/{id}/update")]
+        public ActionResult UpdateForm(int id)
+        {
+            Item thisItem = Item.Find(id);
+            return View(thisItem);
+        }
+
+        [HttpGet("/items/{id}/delete")]
+         public ActionResult DeleteItem(int id)
+         {
+             Item.DeleteItem(id);
+             return RedirectToAction("Details", "Categories", new { id = id });
+         }
     }
 }

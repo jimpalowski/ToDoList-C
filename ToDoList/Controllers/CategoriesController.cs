@@ -56,5 +56,13 @@ namespace ToDoList.Controllers
          model.Add("category", foundCategory);
          return View("Details", model);
        }
+
+       [HttpPost("/items/{id}/update")]
+       public ActionResult Update(int id)
+       {
+           Item thisItem = Item.Find(id);
+           thisItem.Edit(Request.Form["newname"]);
+           return RedirectToAction("Details");
+       }
     }
 }

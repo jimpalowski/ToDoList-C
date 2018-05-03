@@ -10,18 +10,10 @@ namespace ToDoList.Models
     private string _name;
     private int _id;
     private List<Item> _items;
-    private static List<Category> _instances = new List<Category> {};
 
     public Category(string categoryName)
     {
         _name = categoryName;
-        _id = _instances.Count + 1;
-        _items = new List<Item>{};
-    }
-
-    public void Save()
-    {
-       _instances.Add(this);
     }
 
     public List<Item> GetItems()
@@ -41,17 +33,54 @@ namespace ToDoList.Models
     {
         return _id;
     }
+
+    public void SetId(int newId)
+    {
+        _id = newId;
+    }
+
+    public void SetName(string newName)
+    {
+        _name = newName;
+    }
+
+    public void SetList(List<Item> items)
+    {
+        _items = items;
+    }
+
+    public void Save()
+    {
+
+    }
+
     public static List<Category> GetAll()
     {
-        return _instances;
+        List<Category> allCategories = new List<Category> {};
+        MySqlConnection conn = DB.Connection();
+        conn.Open();
+        MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
+        cmd.CommandText = @"SELECT * FROM categories;";
+        MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
+        while(rdr.Read())
+        {
+          int categoryId = rdr.GetInt32(0);
+          string categoryName = rdr.GetString(1);
+          Category newCategory = new Category(categoryName);
+          newCategory.SetId(categoryId);
+          allCategories.Add(newCategory);
+        }
+        conn.Close();
+        if (conn != null)
+        {
+            conn.Dispose();
+        }
+        return allCategories;
     }
-    public static void Clear()
-    {
-        _instances.Clear();
-    }
+
     public static Category Find(int searchId)
     {
-        return _instances[searchId-1];
+        return null;
     }
   }
 }
