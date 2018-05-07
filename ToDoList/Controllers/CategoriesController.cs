@@ -48,7 +48,7 @@ namespace ToDoList.Controllers
          Dictionary<string, object> model = new Dictionary<string, object>();
          Category foundCategory = Category.Find(Int32.Parse(Request.Form["category-id"]));
          Item newItem = new Item(Request.Form["item-description"]);
-         newItem.SetDate(Request.Form["item-due"]);
+         //newItem.SetDate(Request.Form["item-due"]);
          newItem.Save();
          foundCategory.AddItem(newItem);
          List<Item> categoryItems = foundCategory.GetItems();
@@ -57,12 +57,12 @@ namespace ToDoList.Controllers
          return View("Details", model);
        }
 
-       [HttpPost("/items/{id}/update")]
-       public ActionResult Update(int id)
-       {
-           Item thisItem = Item.Find(id);
-           thisItem.Edit(Request.Form["newname"]);
-           return RedirectToAction("Details");
-       }
+      //  [HttpPost("/items/{id}/update")]
+      //  public ActionResult Update(int id)
+      //  {
+      //      Item thisItem = Item.Find(id);
+      //      thisItem.Edit(Request.Form["newname"]);
+      //      return RedirectToAction("Details");
+      //  }
     }
 }

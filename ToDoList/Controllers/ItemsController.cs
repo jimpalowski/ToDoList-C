@@ -37,7 +37,7 @@ namespace ToDoList.Controllers
         [HttpGet("/items/{id}/delete")]
          public ActionResult DeleteItem(int id)
          {
-             Item.DeleteItem(id);
+             //Item.Delete();
              return RedirectToAction("Details", "Categories", new { id = id });
          }
     }
