@@ -76,10 +76,10 @@ namespace ToDoList.Controllers
             return View(thisItem);
         }
 
-        [HttpGet("/items/{id}/delete")]
+        [HttpPost("/categories/{id}/delete")]
          public ActionResult DeleteItem(int id)
          {
-             //Item.Delete();
+             Item.Delete(id);
              return RedirectToAction("Details", "Categories", new { id = id });
          }
     }
