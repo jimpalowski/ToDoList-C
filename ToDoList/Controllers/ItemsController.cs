@@ -27,14 +27,14 @@ namespace ToDoList.Controllers
             newItem.Save();
             return RedirectToAction("Success", "Home");
         }
-       //
-      //  [HttpGet("/categories/{categoryId}/items/new")]
-      //  public ActionResult CreateForm(int categoryId)
-      //  {
-      //     Dictionary<string, object> model = new Dictionary<string, object>();
-      //     Category category = Category.Find(categoryId);
-      //     return View(category);
-      //  }
+
+       [HttpGet("/categories/{categoryId}/items/new")]
+       public ActionResult CreateForm(int categoryId)
+       {
+          Dictionary<string, object> model = new Dictionary<string, object>();
+          Category category = Category.Find(categoryId);
+          return View(category);
+       }
 
        [HttpGet("/items/{id}")]
         public ActionResult Details(int id)
@@ -50,16 +50,16 @@ namespace ToDoList.Controllers
 
         }
 
-      //  [HttpGet("/categories/{categoryId}/items/{itemId}")]
-      //  public ActionResult Details(int categoryId, int itemId)
-      //  {
-      //     Item item = Item.Find(itemId);
-      //     Dictionary<string, object> model = new Dictionary<string, object>();
-      //     Category category = Category.Find(categoryId);
-      //     model.Add("item", item);
-      //     model.Add("category", category);
-      //     return View(item);
-      //  }
+       [HttpGet("/categories/{categoryId}/items/{itemId}")]
+       public ActionResult Details(int categoryId, int itemId)
+       {
+          Item item = Item.Find(itemId);
+          Dictionary<string, object> model = new Dictionary<string, object>();
+          Category category = Category.Find(categoryId);
+          model.Add("item", item);
+          model.Add("category", category);
+          return View(item);
+       }
 
       [HttpPost("/items/{itemId}/categories/new")]
         public ActionResult AddCategory(int itemId)
@@ -69,18 +69,18 @@ namespace ToDoList.Controllers
             item.AddCategory(category);
             return RedirectToAction("Details",  new { id = itemId });
         }
-      //  [HttpGet("/items/{id}/update")]
-      //   public ActionResult UpdateForm(int id)
-      //   {
-      //       Item thisItem = Item.Find(id);
-      //       return View(thisItem);
-      //   }
-       //
-      //   [HttpGet("/items/{id}/delete")]
-      //    public ActionResult DeleteItem(int id)
-      //    {
-      //        //Item.Delete();
-      //        return RedirectToAction("Details", "Categories", new { id = id });
-      //    }
+       [HttpGet("/items/{id}/update")]
+        public ActionResult UpdateForm(int id)
+        {
+            Item thisItem = Item.Find(id);
+            return View(thisItem);
+        }
+
+        [HttpGet("/items/{id}/delete")]
+         public ActionResult DeleteItem(int id)
+         {
+             //Item.Delete();
+             return RedirectToAction("Details", "Categories", new { id = id });
+         }
     }
 }
