@@ -7,11 +7,15 @@ namespace ToDoList.Controllers
 {
     public class HomeController : Controller
     {
-      [HttpGet("/home")]
+      [HttpGet("/")]
       public ActionResult Index()
       {
-          List<Category> allCategories = Category.GetAll();
-          return View(allCategories);
+          return View();
+      }
+      [HttpGet("/success")]
+      public ActionResult Success()
+      {
+          return View();
       }
     }
 }

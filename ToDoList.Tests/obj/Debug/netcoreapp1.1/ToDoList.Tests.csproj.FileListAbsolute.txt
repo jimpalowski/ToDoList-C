@@ -25,3 +25,16 @@
 /Users/evaantipina/work/CSharp/To_Do_List/ToDoList.Tests/bin/Debug/netcoreapp1.1/ToDoList.Tests.pdb
 /Users/evaantipina/work/CSharp/To_Do_List/ToDoList.Tests/bin/Debug/netcoreapp1.1/todolist.dll
 /Users/evaantipina/work/CSharp/To_Do_List/ToDoList.Tests/bin/Debug/netcoreapp1.1/todolist.pdb
+/Users/Guest/Desktop/todolist-final/ToDoList.Tests/bin/Debug/netcoreapp1.1/Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+/Users/Guest/Desktop/todolist-final/ToDoList.Tests/bin/Debug/netcoreapp1.1/Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+/Users/Guest/Desktop/todolist-final/ToDoList.Tests/bin/Debug/netcoreapp1.1/Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+/Users/Guest/Desktop/todolist-final/ToDoList.Tests/bin/Debug/netcoreapp1.1/ToDoList.Tests.deps.json
+/Users/Guest/Desktop/todolist-final/ToDoList.Tests/bin/Debug/netcoreapp1.1/ToDoList.Tests.runtimeconfig.json
+/Users/Guest/Desktop/todolist-final/ToDoList.Tests/bin/Debug/netcoreapp1.1/ToDoList.Tests.runtimeconfig.dev.json
+/Users/Guest/Desktop/todolist-final/ToDoList.Tests/bin/Debug/netcoreapp1.1/ToDoList.Tests.dll
+/Users/Guest/Desktop/todolist-final/ToDoList.Tests/bin/Debug/netcoreapp1.1/ToDoList.Tests.pdb
+/Users/Guest/Desktop/todolist-final/ToDoList.Tests/bin/Debug/netcoreapp1.1/todolist.dll
+/Users/Guest/Desktop/todolist-final/ToDoList.Tests/bin/Debug/netcoreapp1.1/todolist.pdb
+/Users/Guest/Desktop/todolist-final/ToDoList.Tests/obj/Debug/netcoreapp1.1/ToDoList.Tests.AssemblyInfo.cs
+/Users/Guest/Desktop/todolist-final/ToDoList.Tests/obj/Debug/netcoreapp1.1/ToDoList.Tests.dll
+/Users/Guest/Desktop/todolist-final/ToDoList.Tests/obj/Debug/netcoreapp1.1/ToDoList.Tests.pdb
